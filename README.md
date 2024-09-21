@@ -56,134 +56,34 @@ o	Save the final modified image to your local directory.
 ### Register Number: 212222110046
 
 ## Output:
-### 1. Read and display the image
-i.Load an image from your local directory and display it.
-```python
-import cv2
-image=cv2.imread('scenery.jpg',1)
-image = cv2.resize(image, (400, 300))
-cv2.imshow('DhariniPV_212222240024',image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/75f70659-2624-4bb9-80cb-5cd76957d2fa)
-
-### Draw Shapes and Add Text
-(1) Draw a line from the top-left to the bottom-right of the image.
-```python
-import cv2
-image = cv2.imread("scenery.jpg")
-image = cv2.resize(image, (400, 300))
-res = cv2.line(image, (0, 0), (image.shape[1], image.shape[0]), (255,0,0), 10)
-cv2.imshow('DhariniPV_212222240024', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/f87a2f72-6904-4825-af30-071de0d85773)
-
-2. Draw a circle at the center of the image.
-```python
-import cv2
-image = cv2.imread("scenery.jpg")
-image = cv2.resize(image, (400, 300))
-height, width, _ = image.shape
-center_coordinates = (width // 2, height // 2)
-res = cv2.circle(image, center_coordinates, 120, (0, 255, 0), 10)
-cv2.imshow('DhariniPV_212222240024', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/f70ab9fd-f586-4c03-9291-217a67e1b123)
-
-3.Draw a rectangle around a specific region of interest in the image.
-```python
-import cv2
-image = cv2.imread("scenery.jpg")
-image = cv2.resize(image, (400, 300))
-start = (150, 100)
-stop = (300, 200)
-color = (255, 255, 100)
-thickness = 10           
-res_img = cv2.rectangle(image, start, stop, color, thickness)
-cv2.imshow('DhariniPV_212222240024', res_img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/97c153a7-9566-4709-b8c3-b425d4ff1f49)
+### 1.Read and display the image
+Load an image from your local directory and display it.
 
 
-4.Add the text "OpenCV Drawing" at the top-left corner of the image.
-```python
-import cv2
-image = cv2.imread("scenery.jpg")
-image = cv2.resize(image, (400, 300))
-text = "OpenCV Drawing"
-position = (10, 50)
-font = cv2.FONT_HERSHEY_SIMPLEX
-font_scale = 1
-color = (255, 255, 255) 
-thickness = 2
-res = cv2.putText(image, text, position, font, font_scale, color, thickness, cv2.LINE_AA)
-cv2.imshow('DhariniPV_212222240024', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/bb39bc06-25ea-4fd7-b9f6-16fdbc70fa2c)
+### 2.Draw Shapes and Add Text
+i) Draw a line from the top-left to the bottom-right of the image.
 
-### iii)Image Color Conversion
-(i)Convert the image from RGB to HSV and display it
-```python
-import cv2
-image = cv2.imread('scenery.jpg',1)
-image = cv2.resize(image,(300,200))
-cv2.imshow('ORIGINAL IMAGE',image)
-hsv = cv2.cvtColor(image,cv2.COLOR_RGB2HSV)
-cv2.imshow('RGB2HSV',hsv)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/6f4e5be7-e075-4cb5-b87e-2de7c4f6392d)
+
+ii) Draw a circle at the center of the image.
+
+
+iii) Draw a rectangle around a specific region of interest in the image.
+
+
+
+iv) Add the text "OpenCV Drawing" at the top-left corner of the image.
+
+### 3.Image Color Conversion
+i) Convert the image from RGB to HSV and display it
 
 (2) Convert the image from RGB to GRAY and display it.
 
-```python
-import cv2
-image = cv2.imread('scenery.jpg',1)
-image = cv2.resize(image,(300,200))
-cv2.imshow('ORIGINAL IMAGE',image)
-gray = cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)
-cv2.imshow('RGB2GRAY',gray)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/94ba15a5-b663-4d72-b244-354c370d993d)
 
 
 (3) Convert the image from RGB to YCrCb and display it.
-```python
-import cv2
-image = cv2.imread('scenery.jpg',1)
-image = cv2.resize(image,(300,200))
-cv2.imshow('ORIGINAL IMAGE',image)
-YCrCb = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
-cv2.imshow('RGB-2-YCrCb',YCrCb)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/4248d46f-1aa8-4fde-99e4-fecec7034776)
+
 
 (4) Convert the HSV image back to RGB and display it.
-```python
-import cv2
-image = cv2.imread('scenery.jpg',1)
-image = cv2.resize(image,(300,200))
-cv2.imshow('ORIGINAL IMAGE',image)
-RGB = cv2.cvtColor(image,cv2.COLOR_HSV2BGR)
-cv2.imshow('HSV2RGB',RGB)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/a6d2a64b-f87f-4a60-a57f-06213126af60)
 
 ### iv)Access and Manipulate Image Pixels
 (1) Access and print the value of the pixel at coordinates (100, 100)
