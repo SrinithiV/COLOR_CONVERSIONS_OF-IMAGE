@@ -1,4 +1,5 @@
-# COLOR_CONVERSIONS_OF-IMAGE
+## Exp.No:01
+## COLOR_CONVERSIONS_OF_IMAGE
 ## AIM
 Write a Python program using OpenCV that performs the following tasks:
 
@@ -17,7 +18,6 @@ vi) Image Cropping
 vii) Image Flipping
 
 viii)	Write and Save the Modified Image
-
 
 ## Software Required:
 Anaconda - Python 3.7
@@ -45,15 +45,15 @@ o	Convert the image from RGB to YCrCb and display it.
 o	Convert the HSV image back to RGB and display it.
 
 ### Step4:
-o	Access and print the value of the pixel at coordinates (100, 100).
+o	Access and print the value of the pixel.
 
-o	Modify the color of the pixel at (200, 200) to white.
+o	Modify the color of the pixel at (300, 300) to white.
 
 ### Step5:
 o	Resize the original image to half its size and display it.
 
 ### Step6:
-o	Crop a region of interest (ROI) from the image (e.g., a 100x100 pixel area starting at (50, 50)) and display it.
+o	Crop a region of interest (ROI) from the image (e.g., a 300x300 pixel area starting at (50, 50)) and display it.
 
 ### Step7:
 o	Flip the original image horizontally and display it.
@@ -63,278 +63,216 @@ o	Flip the original image vertically and display it.
 ### Step8:
 o	Save the final modified image to your local directory.
 
-##### Program:
+### Program:
 ### Developed By: SRINITHI V
 ### Register Number: 212222110046
-
-## Output:
 ### 1.Read and display the image
 Load an image from your local directory and display it.
 ```python
 import cv2
 import matplotlib.pyplot as plt
-
-image=cv2.imread('i.jpg',1)
-image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
-plt.imshow(image_rgb)
-plt.axis('off')  
+img = cv2.imread('cat.png', cv2.IMREAD_COLOR)
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+plt.imshow(img_rgb, cmap='viridis')
+plt.title("Original Image")
+plt.axis('off') 
 plt.show()
 ```
-![1](https://github.com/user-attachments/assets/c85d3258-4bb0-4630-b9a7-770a93fd62d5)
+#### Output:
+![image](https://github.com/user-attachments/assets/69b64e4f-4bc1-4068-a8e6-5ceb92ca1477)
 
 ### 2.Draw Shapes and Add Text
 i) Draw a line from the top-left to the bottom-right of the image.
 ```python
-import cv2
-import matplotlib.pyplot as plt
-
-img = cv2.imread("i.jpg")
-img=cv2.resize(img,(400,300))
-res = cv2.line(img,(0,0),(400,300),(0, 0, 255),10)
-image_rgb = cv2.cvtColor(res, cv2.COLOR_BGR2RGB)
-
-plt.imshow(image_rgb) 
-plt.axis('off') 
-plt.show()
+img_rgb.shape
 ```
-![2](https://github.com/user-attachments/assets/c07b8b75-e082-49c5-87a5-88549f5a2ac0)
-
-ii) Draw a circle at the center of the image.
+(830, 980, 3)
 ```python
-import cv2
-import matplotlib.pyplot as plt
-
-img = cv2.imread("i.jpg")
-img=cv2.resize(img,(400,300))
-res=cv2.circle(img,(200,150),100,(0, 255, 0),10)
-image_rgb = cv2.cvtColor(res, cv2.COLOR_BGR2RGB)
-
-plt.imshow(image_rgb)
-plt.axis('off') 
-plt.show()
-```
-![3](https://github.com/user-attachments/assets/0b3d7e04-5d91-4384-b781-63b0c7a5394f)
-
-iii) Draw a rectangle around a specific region of interest in the image.
-```python
-import cv2
-import matplotlib.pyplot as plt
-
-image = cv2.imread("i.jpg")
-image = cv2.resize(image, (400, 300))      
-res_img = cv2.rectangle(image,(100, 100),(300, 200),(255,0,0),10)
-image_rgb = cv2.cvtColor(res_img, cv2.COLOR_BGR2RGB)
-
-plt.imshow(image_rgb)
-plt.axis('off') 
-plt.show()
-```
-![4](https://github.com/user-attachments/assets/70629468-bb1d-4443-877f-4811ddab4960)
-
-iv) Add the text "OpenCV Drawing" at the top-left corner of the image.
-```python
-import cv2
-import matplotlib.pyplot as plt
-
-img = cv2.imread("i.jpg")
-res = cv2.putText(img,"OpenCV Drawing",(10, 50) ,cv2.FONT_HERSHEY_SIMPLEX,2,(255, 0, 0) ,3, cv2.LINE_AA)
-image_rgb = cv2.cvtColor(res,cv2.COLOR_BGR2RGB)
-
-plt.imshow(image_rgb)
+line_img = cv2.line(img_rgb, (0, 0), (980, 830), (255, 0, 0), 2)
+plt.imshow(line_img, cmap='viridis')  
+plt.title("Image with Line")
 plt.axis('off')  
 plt.show()
 ```
-![5](https://github.com/user-attachments/assets/acb6a46c-7a59-43d7-ab19-1576da96400d)
+#### Output:
+![image](https://github.com/user-attachments/assets/217572e9-e07d-4742-89c1-fcdab5e8ebdc)
+
+ii) Draw a circle at the center of the image.
+```python
+img = cv2.imread('cat.png', cv2.IMREAD_COLOR)
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_rgb.shape
+```
+(830, 980, 3)
+```python
+circle_img = cv2.circle(img_rgb,(500,400),150,(255,0,0),10)
+plt.imshow(circle_img, cmap='viridis')  
+plt.title("Image with Circle")
+plt.axis('off')  
+plt.show()
+```
+#### Output:
+![image](https://github.com/user-attachments/assets/e0b1ca33-ee0d-4e6c-95b0-99fdba4ed886)
+
+iii) Draw a rectangle around a specific region of interest in the image.
+```python
+img = cv2.imread('cat.png', cv2.IMREAD_COLOR)
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_rgb.shape
+```
+(830, 980, 3)
+```python
+rectangle_img = cv2.rectangle(img_rgb, (0, 0), (980, 830), (0, 0, 255), 10)
+plt.imshow(rectangle_img, cmap='viridis')  
+plt.title("Image with Rectangle")
+plt.axis('off')  
+plt.show()
+```
+#### Output:
+![image](https://github.com/user-attachments/assets/c1f4920d-33ff-4285-8d17-cc2eea057146)
+
+iv) Add the text "OpenCV Drawing" at the top-left corner of the image.
+```python
+img = cv2.imread('cat.png', cv2.IMREAD_COLOR)
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+text_img = cv2.putText(img_rgb, "OpenCV Drawing", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (255, 255, 255), 10)
+plt.imshow(text_img, cmap='viridis')  
+plt.title("Image with Text")
+plt.axis('off')  
+plt.show()
+```
+#### Output:
+![image](https://github.com/user-attachments/assets/4e3db98c-2d3f-4203-841a-05c2e54b7e1c)
 
 ### 3.Image Color Conversion
 i) Convert the image from RGB to HSV and display it
 ```python
-import cv2
-import matplotlib.pyplot as plt
-
-img = cv2.imread("i.jpg")
+img = cv2.imread('cat.png', cv2.IMREAD_COLOR)
 image_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-image_hsv = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2HSV)
-
-plt.figure(figsize=(10, 5))
-plt.subplot(1, 2, 1)
 plt.imshow(image_rgb)
-plt.title('Original RGB Image')
-plt.axis('off')
-
-plt.subplot(1, 2, 2)
-plt.imshow(image_hsv)
-plt.title('HSV Image')
-plt.axis('off')
-plt.show()
+plt.title("Original RGB Image")
+plt.axis("off")
 ```
-![6](https://github.com/user-attachments/assets/3e10f45e-4118-4c96-b308-301e50cb636b)
+#### Output:
+![image](https://github.com/user-attachments/assets/be048117-3353-49ed-86b0-5836a7a4467e)
+
+```python
+image_hsv = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2HSV)
+plt.imshow(image_hsv)
+plt.title("HSV Image")
+plt.axis("off")
+```
+#### Output:
+![image](https://github.com/user-attachments/assets/aba2ca91-2fe5-42bd-a8d6-81d64cf0e51a)
 
 ii) Convert the image from RGB to GRAY and display it.
 ```python
-import cv2
-import matplotlib.pyplot as plt
-
-img = cv2.imread("i.jpg")
-image_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 image_gray = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2GRAY)
-plt.figure(figsize=(10, 5))
-
-plt.subplot(1, 2, 1)
-plt.imshow(image_rgb)
-plt.title('Original RGB Image')
-plt.axis('off')
-
-plt.subplot(1, 2, 2)
 plt.imshow(image_gray, cmap='gray')
-plt.title('Grayscale Image')
-plt.axis('off')
-plt.show()
+plt.title("Grayscale Image")
+plt.axis("off")
 ```
-![7](https://github.com/user-attachments/assets/7ac99224-e490-401d-a6e1-7c2aed228ea9)
+#### Output:
+![image](https://github.com/user-attachments/assets/ca721135-4d9a-486d-b6f3-c67fde72dd79)
 
 iii)Convert the image from RGB to YCrCb and display it.
 ```python
 image_ycrcb = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2YCrCb)
-
-plt.figure(figsize=(10, 5))
-plt.subplot(1, 2, 1)
-plt.imshow(image_rgb)
-plt.title('Original RGB Image')
-plt.axis('off')
-
-plt.subplot(1, 2, 2)
 plt.imshow(image_ycrcb)
-plt.title('YCrCb Image')
-plt.axis('off')
-plt.show()
+plt.title("YCrCb Image")
+plt.axis("off")
 ```
-![8](https://github.com/user-attachments/assets/b890827f-177d-406b-b66a-b67d3da3efaa)
+#### Output:
+![image](https://github.com/user-attachments/assets/67d516b0-0d3b-4f0b-a369-967f0a91684b)
 
 iv) Convert the HSV image back to RGB and display it.
 ```python
-image_rgb_converted=cv2.cvtColor(image_hsv,cv2.COLOR_HSV2RGB)
-
-plt.figure(figsize=(10,5))
-plt.subplot(1,2,1)
-plt.imshow(image_hsv)
-plt.title('HSV Image')
-plt.axis('off')
-
-plt.subplot(1,2,2)
-plt.imshow(image_rgb_converted)
-plt.title('RGB Image')
-plt.axis('off')
-plt.show()
+image_hsv_to_rgb = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2RGB)
+plt.imshow(image_hsv_to_rgb)
+plt.title("HSV to RGB Image")
+plt.axis("off")
 ```
-![9](https://github.com/user-attachments/assets/d2a600b8-00b0-4e0a-8cd0-c72108385a5c)
+#### Output:
+![image](https://github.com/user-attachments/assets/0a0cdd19-38e2-4e98-9de9-bd78fcc218df)
 
 ### 4.Access and Manipulate Image Pixels
 i) Access and print the value of the pixel at coordinates (100, 100).
 ```python
-import cv2
-image=cv2.imread("i.jpg")
-image = cv2.resize(image, (400, 300))  
-pixel_value = image[100, 100]
-print(f'Pixel value at (100, 100): {pixel_value}')
+img[200:500, 200:500] = [255, 255, 255]
 ```
-![Screenshot 2024-09-21 183109](https://github.com/user-attachments/assets/5682b79b-8a2e-428d-8649-8a464cefeb9d)
-
-ii) Modify the color of the pixel at (200, 200) to white.
+ii) Modify the color of the pixel at (300, 300) to white.
 ```python
-import cv2
-import matplotlib.pyplot as plt
-
-image = cv2.imread('i.jpg')
-image = cv2.resize(image,(400,300))
-image= cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
-plt.figure(figsize=(10,5))
-plt.subplot(1,2,1)
-plt.imshow(image)
-plt.title('ORIGINAL IMAGE')
-plt.axis('off')
-
-image[205:210, 205:210] = [255, 255, 255]
-
-plt.subplot(1,2,2)
-plt.imshow(image)
-plt.title('MODIFIED IMAGE')
-plt.axis('off')
+image_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+plt.imshow(image_rgb)
+plt.title("Image with 300x300 White Block")
+plt.axis("off")
+plt.show()
 ```
-![10](https://github.com/user-attachments/assets/3b95260c-321b-4829-82ee-f523b15844bb)
+#### Output:
+![image](https://github.com/user-attachments/assets/ca085e97-e429-4ce4-82f7-4762f93e3e5e)
 
 ### 5.Image Resizing:
 ```python
-import cv2
-image = cv2.imread('i.jpg')
-cv2.imshow('ORIGINAL IMAGE',image)
-resized_image = cv2.resize(image, (image.shape[1] // 2, image.shape[0] // 2))
-cv2.imshow('RESIZED IMAGE', resized_image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+image = cv2.imread('cat.png') 
+image.shape
 ```
-![11](https://github.com/user-attachments/assets/0104fa41-0394-43d5-bb7b-01a99b3c3df4)
+(830, 980, 3)
+```python
+resized_image = cv2.resize(image, (980 // 2, 830 // 2))
+resized_image_rgb = cv2.cvtColor(resized_image, cv2.COLOR_BGR2RGB)
+resized_image_rgb.shape
+```
+(415, 490, 3)
+```python
+plt.imshow(resized_image_rgb)
+plt.title("Resized Image (Half Size)")
+plt.axis("off")
+plt.show()
+```
+#### Output:
+![image](https://github.com/user-attachments/assets/7cfbed92-11bf-4e10-a7e2-390991a97cf0)
 
 ### 6.Image Cropping
-Crop a region of interest (ROI) from the image (e.g., a 100x100 pixel area starting at (50, 50)) and display it.
+Crop a region of interest (ROI) from the image (e.g., a 300x300 pixel area starting at (50, 50)) and display it.
 ```python
-import cv2
-image = cv2.imread('i.jpg')
-image = cv2.resize(image,(400,300))
-x, y = 50, 50
-width, height = 100, 100
-roi = image[y:y + height, x:x + width]
-cv2.imshow('CROPPED IMAGE', roi)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+image = cv2.imread('cat.png') 
+image.shape
 ```
-![12](https://github.com/user-attachments/assets/d7502768-860c-4fd7-bb6b-9a2d79a0b415)
+(830, 980, 3)
+```python
+roi = image[50:350, 50:350]
+roi_rgb = cv2.cvtColor(roi, cv2.COLOR_BGR2RGB)
+plt.imshow(roi_rgb)
+plt.title("Cropped Region of Interest (ROI)")
+plt.axis("off")
+plt.show()
+```
+#### Output:
+![image](https://github.com/user-attachments/assets/007b4e4d-7969-45ea-84fe-a7171dd34d4c)
 
 ### 7.Image Flipping:
 i) Flip the original image horizontally and display it.
 ```python
-import cv2
-image = cv2.imread("i.jpg")
-image = cv2.resize(image,(400,300))
-res=cv2.flip(image,1)
-cv2.imshow('ORIGINAL IMAGE',image)
-cv2.imshow('FLIPPED IMAGE', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+image = cv2.imread('cat.png')
+flipped_horizontally = cv2.flip(image, 1)
+flipped_horizontally_rgb = cv2.cvtColor(flipped_horizontally, cv2.COLOR_BGR2RGB)
+plt.imshow(flipped_horizontally_rgb)
+plt.title("Flipped Horizontally")
+plt.axis("off")
 ```
-![13](https://github.com/user-attachments/assets/0b4a83ff-67b3-4ab0-8246-df2bbfa1047a)
+#### Output:
+![image](https://github.com/user-attachments/assets/7fee8c6e-5bc5-4509-a955-f3c64aa6bfb5)
 
 ii) Flip the original image vertically and display it.
 ```python
-import cv2
-image = cv2.imread("i.jpg")
-image = cv2.resize(image,(400,300))
-res=cv2.flip(image,0)
-cv2.imshow('ORIGINAL IMAGE',image)
-cv2.imshow('FLIPPED IMAGE', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+flipped_vertically = cv2.flip(image, 0)
+flipped_vertically_rgb = cv2.cvtColor(flipped_vertically, cv2.COLOR_BGR2RGB)
+plt.imshow(flipped_vertically_rgb)
+plt.title("Flipped Vertically")
+plt.axis("off")
 ```
-![14](https://github.com/user-attachments/assets/40cdf040-b92d-407d-b84e-dd6cd53d40a8)
-
-### 8.Write and Save the Modified Image
-Save the final modified image to your local directory.
-```python
-import cv2
-img = cv2.imread("i.jpg")
-img = cv2.resize(img,(400,300))
-cv2.imwrite('Lokesh.jpg',img)
-```
-![Screenshot 2024-09-21 183642](https://github.com/user-attachments/assets/c6cbf4f0-e35f-4e36-ae5b-796d7cb0cf0e)
+#### Output:
+![image](https://github.com/user-attachments/assets/8c20a262-c2a3-4187-9e54-9860b8bf0e2b)
 
 ## Result:
 Thus the images are read, displayed, and written ,and color conversion was performed  successfully using the python program.
-
-
-
-
-
-
-
